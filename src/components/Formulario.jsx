@@ -97,6 +97,25 @@ const Formulario = () => {
         }
     }
 
+    const validarColorFondo = (color) =>{
+        if(color === "Rojo"){
+            return "has-background-danger";
+        }else if(color === "Verde"){
+            return "has-background-success";
+        }
+        else if(color === "Azul"){
+            return "has-background-link";
+        }
+        else if(color === "Amarillo"){
+            return "has-background-warning";
+        }
+        else if(color === "Celeste"){
+            return "has-background-info";
+        }else{
+            return "";
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(nombreApellidoValido === 1 && paisProvinciaValido === 1 && colorValido === 1){
@@ -200,15 +219,15 @@ const Formulario = () => {
                     </div>
                 </div>
             </form>:
-            <div className="card has-background-primary">
+            <div className={`card ${validarColorFondo(usuarioDatos.color)} m-4`}>
                 <div className="card-content">
                     <div className="content">
-                        <p className="has-text-primary-invert">Nombre: {usuarioDatos.nombreApellido}</p>
-                        <p className="has-text-primary-invert">Pais y Provincia: {usuarioDatos.paisProvincia}</p>
-                        <p className="has-text-primary-invert">Color: {usuarioDatos.color}</p>
+                        <p className="has-text-white">Nombre: {usuarioDatos.nombreApellido}</p>
+                        <p className="has-text-white">Pais y Provincia: {usuarioDatos.paisProvincia}</p>
+                        <p className="has-text-white">Color: {usuarioDatos.color}</p>
                     </div>
                     <div className="control">
-                        <button className="button is-link is-dark">Volver a cargar datos</button>
+                        <button className="button is-primary is-light" onClick={resetFormulario}>Volver a cargar datos</button>
                     </div>
                 </div>
             </div>
