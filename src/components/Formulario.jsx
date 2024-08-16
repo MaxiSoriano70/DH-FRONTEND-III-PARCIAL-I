@@ -123,16 +123,16 @@ const Formulario = () => {
         }
         else{
             setShow(false);
-            if(nombreApellidoValido === 0){
+            if(nombreApellidoValido === 0 || nombreApellidoValido === -1){
                 setNombreApellidoError(0);
                 setShow(false);
             }
-            if(paisProvinciaValido === 0){
+            if(paisProvinciaValido === 0 || paisProvinciaValido === -1){
                 setPaisProvinciaError(0);
                 setShow(false);
             }
-            if(colorValido === 0){
-                setColorValido(0);
+            if(colorValido === 0 || colorValido === -1){
+                setColorError(0);
                 setShow(false);
             }
         }
